@@ -1,3 +1,4 @@
+// بيانات العناصر الأساسية
 const elements = {
   H:  {num:1,  group:1,  period:1, name:"الهيدروجين", type:"لا فلز"},
   He: {num:2,  group:18, period:1, name:"الهيليوم", type:"غاز نبيل"},
@@ -26,7 +27,7 @@ const elements = {
   Kr: {num:36, group:18, period:4, name:"الكريبتون", type:"غاز نبيل"}
 };
 
-// دالة لحساب التوزيع الإلكتروني
+// دالة توليد التوزيع الإلكتروني
 function electronicConfiguration(n) {
   const order = ["1s","2s","2p","3s","3p","4s","3d","4p","5s","4d","5p",
                  "6s","4f","5d","6p","7s","5f","6d","7p"];
@@ -46,7 +47,7 @@ function electronicConfiguration(n) {
   return result.trim();
 }
 
-// عرض المعلومات عند الاختيار
+// دالة عرض التفاصيل
 function showInfo() {
   const symbol = document.getElementById("elementSelect").value;
   const res = document.getElementById("result");
@@ -59,6 +60,12 @@ function showInfo() {
   const el = elements[symbol];
   const config = electronicConfiguration(el.num);
 
+  // تحديد لون الشارة حسب النوع
+  let badgeClass = "nonmetal-badge";
+  if (el.type === "فلز") badgeClass = "metal-badge";
+  else if (el.type === "شبه فلز") badgeClass = "metalloid-badge";
+  else if (el.type === "غاز نبيل") badgeClass = "noble-badge";
+
   res.innerHTML = `
     <strong>الرمز:</strong> ${symbol}<br>
     <strong>الاسم:</strong> ${el.name}<br>
@@ -66,6 +73,6 @@ function showInfo() {
     <strong>التوزيع الإلكتروني:</strong> ${config}<br>
     <strong>المجموعة:</strong> ${el.group}<br>
     <strong>الدورة:</strong> ${el.period}<br>
-    <strong>النوع:</strong> ${el.type}
+    <div class="type-badge ${badgeClass}">${el.type}</div>
   `;
 }
