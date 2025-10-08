@@ -11,18 +11,15 @@
       background: linear-gradient(to bottom right, #e0f7fa, #f1f8e9);
       min-height: 100vh;
     }
-
     h1 {
       color: #0077b6;
       text-align: center;
     }
-
     p {
       text-align: center;
       font-size: 1.1rem;
       margin-bottom: 1rem;
     }
-
     select {
       display: block;
       margin: 0 auto 1rem;
@@ -33,19 +30,10 @@
       cursor: pointer;
       background-color: #ffffff;
     }
-
-    option.metal {
-      background-color: #ffeaa7;
-    }
-
-    option.nonmetal {
-      background-color: #81ecec;
-    }
-
-    option.noble {
-      background-color: #a29bfe;
-      color: white;
-    }
+    option.metal { background-color: #ffeaa7; }
+    option.nonmetal { background-color: #81ecec; }
+    option.metalloid { background-color: #b2ebf2; }
+    option.noble { background-color: #a29bfe; color: white; }
 
     button {
       display: block;
@@ -59,7 +47,6 @@
       cursor: pointer;
       transition: 0.3s;
     }
-
     button:hover {
       background: #005f87;
       transform: scale(1.05);
@@ -67,7 +54,7 @@
 
     #result {
       margin: 2rem auto;
-      max-width: 400px;
+      max-width: 420px;
       background: #ffffff;
       border-radius: 15px;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
@@ -75,10 +62,7 @@
       font-size: 1.1rem;
       line-height: 1.8;
     }
-
-    #result strong {
-      color: #0077b6;
-    }
+    #result strong { color: #0077b6; }
 
     footer {
       text-align: center;
@@ -100,31 +84,31 @@
 
   <select id="elementSelect">
     <option value="">-- اختر العنصر --</option>
-    <option class="nonmetal" value="H">H - الهيدروجين</option>
-    <option class="noble" value="He">He - الهيليوم</option>
-    <option class="metal" value="Li">Li - الليثيوم</option>
-    <option class="metal" value="Be">Be - البيريليوم</option>
-    <option class="nonmetal" value="B">B - البورون</option>
-    <option class="nonmetal" value="C">C - الكربون</option>
-    <option class="nonmetal" value="N">N - النيتروجين</option>
-    <option class="nonmetal" value="O">O - الأكسجين</option>
-    <option class="nonmetal" value="F">F - الفلور</option>
-    <option class="noble" value="Ne">Ne - النيون</option>
-    <option class="metal" value="Na">Na - الصوديوم</option>
-    <option class="metal" value="Mg">Mg - المغنيسيوم</option>
-    <option class="metal" value="Al">Al - الألومنيوم</option>
-    <option class="nonmetal" value="Si">Si - السيليكون</option>
-    <option class="nonmetal" value="P">P - الفوسفور</option>
-    <option class="nonmetal" value="S">S - الكبريت</option>
-    <option class="nonmetal" value="Cl">Cl - الكلور</option>
-    <option class="noble" value="Ar">Ar - الأرجون</option>
-    <option class="metal" value="K">K - البوتاسيوم</option>
-    <option class="metal" value="Ca">Ca - الكالسيوم</option>
-    <option class="metal" value="Fe">Fe - الحديد</option>
-    <option class="metal" value="Cu">Cu - النحاس</option>
-    <option class="metal" value="Zn">Zn - الزنك</option>
-    <option class="nonmetal" value="Br">Br - البروم</option>
-    <option class="noble" value="Kr">Kr - الكريبتون</option>
+    <option class="nonmetal" value="H">H - الهيدروجين (لا فلز)</option>
+    <option class="noble" value="He">He - الهيليوم (غاز نبيل)</option>
+    <option class="metal" value="Li">Li - الليثيوم (فلز)</option>
+    <option class="metal" value="Be">Be - البيريليوم (فلز)</option>
+    <option class="metalloid" value="B">B - البورون (شبه فلز)</option>
+    <option class="nonmetal" value="C">C - الكربون (لا فلز)</option>
+    <option class="nonmetal" value="N">N - النيتروجين (لا فلز)</option>
+    <option class="nonmetal" value="O">O - الأكسجين (لا فلز)</option>
+    <option class="nonmetal" value="F">F - الفلور (لا فلز)</option>
+    <option class="noble" value="Ne">Ne - النيون (غاز نبيل)</option>
+    <option class="metal" value="Na">Na - الصوديوم (فلز)</option>
+    <option class="metal" value="Mg">Mg - المغنيسيوم (فلز)</option>
+    <option class="metal" value="Al">Al - الألومنيوم (فلز)</option>
+    <option class="metalloid" value="Si">Si - السيليكون (شبه فلز)</option>
+    <option class="nonmetal" value="P">P - الفوسفور (لا فلز)</option>
+    <option class="nonmetal" value="S">S - الكبريت (لا فلز)</option>
+    <option class="nonmetal" value="Cl">Cl - الكلور (لا فلز)</option>
+    <option class="noble" value="Ar">Ar - الأرجون (غاز نبيل)</option>
+    <option class="metal" value="K">K - البوتاسيوم (فلز)</option>
+    <option class="metal" value="Ca">Ca - الكالسيوم (فلز)</option>
+    <option class="metal" value="Fe">Fe - الحديد (فلز)</option>
+    <option class="metal" value="Cu">Cu - النحاس (فلز)</option>
+    <option class="metal" value="Zn">Zn - الزنك (فلز)</option>
+    <option class="nonmetal" value="Br">Br - البروم (لا فلز)</option>
+    <option class="noble" value="Kr">Kr - الكريبتون (غاز نبيل)</option>
   </select>
 
   <button onclick="showInfo()">اعرض المعلومات</button>
